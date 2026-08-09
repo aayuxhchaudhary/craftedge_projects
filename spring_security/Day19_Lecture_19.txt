@@ -1,0 +1,22 @@
+Security in Spring Boot:
+--------------------------
+* Only the valid person cann access the apppliaction/API...
+* Unauthoreised person can't access the API.
+
+These are the part of the Login Modules.
+
+1) Authentication 
+    -----Valid Person----
+	-----Credentials---(UserName/Passowrd)....
+	-----This is the first acitvity when we do the login in any appliaxction.
+
+2) Authorization 
+    ------Rights-------
+	------Roles--------
+	------What He/She can access or what he/she can't access.	
+	a) Patients.
+	b) Consultants.
+	c) Pharmacy
+	d) SuperAdmin.
+	
+Using generated security password: 55971b0e-b66a-4ef0-9377-e75ce4bb40c4
