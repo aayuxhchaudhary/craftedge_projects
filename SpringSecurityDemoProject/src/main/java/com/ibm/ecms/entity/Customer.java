@@ -11,6 +11,7 @@ public class Customer {
     private Integer customerId;
     private String emailId;
     private String name;
+    private String password;
     private LocalDate dateOfBirth;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -33,6 +34,12 @@ public class Customer {
     }
     public void setName(String name) {
         this.name = name;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
     public LocalDate getDateOfBirth() {
         return dateOfBirth;

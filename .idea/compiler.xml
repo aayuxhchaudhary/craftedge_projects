@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="UserLoginAndRegistrationProject" />
         <module name="DataValidationSpringBootProjectr (1)" />
+        <module name="SpringSecurityDemoProject" />
         <module name="JunitMockitoSpringBootDemoProject" />
         <module name="DataValidationSpringBootProjectr" />
       </profile>
@@ -18,6 +19,7 @@
       <module name="DataValidationSpringBootProjectr" options="-parameters" />
       <module name="DataValidationSpringBootProjectr (1)" options="-parameters" />
       <module name="JunitMockitoSpringBootDemoProject" options="-parameters" />
+      <module name="SpringSecurityDemoProject" options="-parameters" />
       <module name="UserLoginAndRegistrationProject" options="-parameters" />
     </option>
   </component>

@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/cea")
+@RequestMapping(value = "/")
+@CrossOrigin(origins = "*")
 @Validated
 public class CustomerAPI {
     @Autowired
@@ -30,8 +31,7 @@ public class CustomerAPI {
         return  new ResponseEntity<>(customerList, HttpStatus.OK);
     }
     @GetMapping(value = "/customers/{customerId}")
-    public ResponseEntity<CustomerDTO> getCustomerDetails(@PathVariable @Min(value = 1, message = "Customer id should be between 1 and 4")
-                                                                        @Max(value = 4, message = "Customer id should be between 1 and 4") Integer customerId)  throws Exception  {
+    public ResponseEntity<CustomerDTO> getCustomerDetails(@PathVariable Integer customerId) throws Exception {
         CustomerDTO customerDTO = customerService.getCustomer(customerId);
         ResponseEntity<CustomerDTO> response = new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
         return response;
@@ -45,9 +45,14 @@ public class CustomerAPI {
     @PutMapping(value = "/customers/{customerId}")
     public ResponseEntity<String> updateCustomer(@PathVariable Integer customerId, @RequestBody CustomerDTO customer)
             throws Exception {
-        customerService.updateCustomer(customerId, customer.getEmailId());
+        customerService.updateCustomerDetails(customerId, customer);
         String successMessage = environment.getProperty("API.UPDATE_SUCCESS");
         return new ResponseEntity<>(successMessage, HttpStatus.OK);
+    }
+    @PostMapping(value = "/customers/login")
+    public ResponseEntity<CustomerDTO> loginCustomer(@RequestBody CustomerDTO customerDTO) throws Exception {
+        CustomerDTO loggedInCustomer = customerService.loginCustomer(customerDTO.getEmailId(), customerDTO.getPassword());
+        return new ResponseEntity<>(loggedInCustomer, HttpStatus.OK);
     }
     @DeleteMapping(value = "/customers/{customerId}")
     public ResponseEntity<String> deleteCustomer(@PathVariable Integer customerId) throws Exception {

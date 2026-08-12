@@ -1,7 +1,5 @@
 package com.ibm.ecms.service;
 
-
-
 import com.ibm.ecms.dto.CustomerDTO;
 import com.ibm.ecms.exception.CEAException;
 
@@ -12,6 +10,8 @@ public interface CustomerService {
     public Integer addCustomer(CustomerDTO customerDTO) throws CEAException;
     public CustomerDTO getCustomer(Integer customerId) throws CEAException;
     public void updateCustomer(Integer customerId, String emailId) throws CEAException;
+    public void updateCustomerDetails(Integer customerId, CustomerDTO customerDTO) throws CEAException;
     public void deleteCustomer(Integer customerId) throws CEAException;
     public List<CustomerDTO> getAllCustomers() throws CEAException;
+    public CustomerDTO loginCustomer(String emailId, String password) throws CEAException;
 }

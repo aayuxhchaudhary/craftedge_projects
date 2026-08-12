@@ -20,6 +20,8 @@ public class CustomerDTO {
     @Pattern(regexp = "[A-Za-z]+( [A-Za-z]+)*", message = "{customer.name.invalid}")
     private String name;
 
+    private String password;
+
     @PastOrPresent(message = "{customer.dob.invalid}")
     private LocalDate dateOfBirth;
 
@@ -49,6 +51,14 @@ public class CustomerDTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LocalDate getDateOfBirth() {

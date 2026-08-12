@@ -17,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/cea")
+@CrossOrigin(origins = "*")
 @Validated
 public class CustomerAPI {
     @Autowired
